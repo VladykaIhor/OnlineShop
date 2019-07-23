@@ -22,8 +22,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getById(Long id) {
-        return productDao.getById(id);
+    public Optional<Product> getById(Long id) {
+        return Optional.ofNullable(productDao.getById(id));
     }
 
     @Override
