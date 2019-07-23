@@ -36,7 +36,7 @@ public class InitServlet extends HttpServlet {
         User testUser = new User("asd@asd", "asd", "asd", "user");
         userService.add(testUser);
         userService.add(testAdmin);
-        Product product1 = new Product("Earphones", "closed-type", 100.0);
+        Product firstProduct = new Product("Earphones", "closed-type", 100.0);
         Product product2 = new Product("Guitar pick", "1,00mm", 2.0);
         Product product3 = new Product("Audio cable", "jack 3,5mm", 100.0);
         productService.add(product1);
