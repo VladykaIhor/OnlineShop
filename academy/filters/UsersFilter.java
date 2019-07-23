@@ -19,7 +19,8 @@ public class UsersFilter implements Filter {
     public void destroy() {
     }
 
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) 
+        throws ServletException, IOException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) req;
         HttpServletResponse httpServletResponse = (HttpServletResponse) resp;
         User userFromSession = (User) httpServletRequest.getSession().getAttribute("user");
