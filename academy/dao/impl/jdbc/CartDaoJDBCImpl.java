@@ -21,7 +21,7 @@ public class CartDaoJDBCImpl implements CartDao {
     private static final DAOService daoService = new DAOService();
     private static final String SQL_ADD_PRODUCT_TO_CART = "INSERT INTO cart_product(product_id, " +
             "cart_id) values (?, ?)";
-    private static final String SQL_CREATE_CART = "INSERT into cart(user_id) VALUES (?)";
+    private static final String SQL_ADD_CART = "INSERT into cart(user_id) VALUES (?)";
     private static final String SQL_GET_ALL_PRODUCTS = "SELECT p.id, p.name," +
             " p.description, p.price " +
             " FROM products p" +
