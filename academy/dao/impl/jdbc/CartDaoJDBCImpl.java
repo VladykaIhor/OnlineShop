@@ -29,7 +29,7 @@ public class CartDaoJDBCImpl implements CartDao {
             " INNER JOIN cart c on cp.cart_id = c.id\n" +
             " WHERE c.user_id;";
     private static final String SQL_SIZE_CART = "SELECT COUNT(*) FROM cart_product WHERE " +
-            "cart_id = (?)";
+            "cart_id = ?";
     private static final String SQL_GET_CART_ID_BY_USER = "SELECT id from cart WHERE user_id =?";
 
 
