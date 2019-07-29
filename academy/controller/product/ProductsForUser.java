@@ -20,14 +20,16 @@ public class ProductsForUser extends HttpServlet {
     private static final ProductService productService = ProductServiceFactory.getInstance();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException {
         List<Product> productList = productService.getAll();
         req.setAttribute("products", productList);
         req.getRequestDispatcher("/products_user.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+        throws ServletException, IOException {
         List<Product> productList = productService.getAll();
         req.setAttribute("products", productList);
         req.getRequestDispatcher("/products_user.jsp").forward(req, resp);
