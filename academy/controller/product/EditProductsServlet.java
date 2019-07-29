@@ -18,6 +18,7 @@ import mate.academy.service.ProductService;
 public class EditProductsServlet extends HttpServlet {
 
     private static final ProductService productService = ProductServiceFactory.getInstance();
+    private static final Logger logger = Logger.getLogger(EditProductsServlet.class);
 
     public EditProductsServlet() {
     }
@@ -48,7 +49,8 @@ public class EditProductsServlet extends HttpServlet {
             req.getRequestDispatcher("/edit-product.jsp").forward(req, resp);
         } else {
             if (price <= 0) {
-                throw new NumberFormatException();
+                logger.info("The price can't be lower than two");
+                resp.sendRedirect("/products");
             }
             Product newProduct = new Product(id, name, description, price);
             Optional<Product> productOptional = productService.getById(id);
