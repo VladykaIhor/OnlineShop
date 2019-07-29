@@ -32,15 +32,6 @@ public class InitServlet extends HttpServlet {
 
     @Override
     public void init() {
-/*        User testAdmin = new User("test@test", "test", "test", "admin");
-        User testUser = new User("asd@asd", "asd", "asd", "user");
-        userService.add(testUser);
-        userService.add(testAdmin);
-        Product product1 = new Product("Earphones", "closed-type", 100.0);
-        Product product2 = new Product("Guitar pick", "1,00mm", 2.0);
-        Product product3 = new Product("Audio cable", "jack 3,5mm", 100.0);
-        productService.add(product1);
-        productService.add(product2);
-        productService.add(product3);*/
+
     }
 }
