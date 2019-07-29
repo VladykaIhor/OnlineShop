@@ -31,6 +31,10 @@ public class CartDaoJDBCImpl implements CartDao {
     private static final String SQL_SIZE_CART = "SELECT COUNT(*) FROM cart_product WHERE " +
             "cart_id = ?";
     private static final String SQL_GET_CART_ID_BY_USER = "SELECT id from cart WHERE user_id =?";
+    private static final String SQL_RESET_BASKET = "DELETE cart.*, product_cart.* FROM cart " +
+            "INNER JOIN cart_basket ON cart.user_id =\n product_cart.user_id " +
+            "WHERE cart.user_id = (?)";
+
 
 
     @Override
@@ -96,7 +100,13 @@ public class CartDaoJDBCImpl implements CartDao {
 
     @Override
     public void resetCart(User user) {
-
+        try (Connection connection = daoService.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_RESET_BASKET);
+            preparedStatement.setLong(1, user.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("Error while trying to reset the shopping cart in DB", e);
+        }
     }
 
     @Override
@@ -110,16 +120,6 @@ public class CartDaoJDBCImpl implements CartDao {
         } catch (SQLException e) {
             logger.error("Failed to get cart size");
         }
-        return 0;
-    }
-
-    @Override
-    public boolean checkCartByUser(User user) {
-        return false;
-    }
-
-    @Override
-    public double getSumOfOrderInCart(User user) {
         return 0;
     }
 }
