@@ -15,7 +15,7 @@ public class CodeDaoJDBCImpl implements CodeDao {
     private static final Logger logger = Logger.getLogger(UserDaoJDBCImpl.class);
     private static final DAOService daoService = new DAOService();
     private static final String SQL_ADD_CODE = "INSERT into code (value, order_id) VALUES (?, ?)";
-    private static final String SQL_GET_CODE = "SELECT value FROM code WHERE (order_id) = (?)";
+    private static final String SQL_GET_CODE = "SELECT value FROM code WHERE order_id = ?";
 
     @Override
     public void addCode(Code code) {
